@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export { 
         show,
-        getById 
+        getById,
     };
 
 async function show(req, res) {
@@ -23,7 +23,6 @@ async function show(req, res) {
         },
       }
     );
-      // console.log(response.data)
     res.json(response.data.animals);
   } catch (error) {
     console.error('Error fetching pets:', error);
@@ -32,7 +31,6 @@ async function show(req, res) {
 }
 
 async function getById(req, res) {
-    // console.log(req.params.id, req.headers.authorization)
     try {
       const response = await axios.get(
         `https://api.petfinder.com/v2/animals/${req.params.id}`,

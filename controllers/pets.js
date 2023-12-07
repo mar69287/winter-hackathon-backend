@@ -9,7 +9,7 @@ export {
 async function show(req, res) {
   try {
     // console.log('in show')
-    const { type, location, token } = req.body;
+    const { type, location, token, gender, age, size } = req.body;
     // console.log(req.body)
     const response = await axios.get(
       "https://api.petfinder.com/v2/animals",
@@ -18,8 +18,11 @@ async function show(req, res) {
           Authorization: `Bearer ${token}`,
         },
         params: {
-          type: type,
-          location: location, 
+          type,
+          location,
+          age, 
+          size,
+          gender 
         },
       }
     );
